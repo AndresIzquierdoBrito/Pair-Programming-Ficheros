@@ -1,7 +1,22 @@
-﻿internal class Program
+﻿using System.Diagnostics;
+
+namespace Ej03
 {
-    private static void Main(string[] args)
+    internal class Program
     {
-        Console.WriteLine("Hello, World!");
+        private static void Main()
+        {
+            if (Ficheros.ArchivoExiste())
+            {
+                Ficheros.LeerFichero();
+                Ficheros.GestionLineas();
+
+            }
+            else
+            {
+                Console.WriteLine("pito");
+            }
+
+        }
     }
 }
