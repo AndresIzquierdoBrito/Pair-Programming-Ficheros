@@ -1,7 +1,22 @@
-﻿internal class Program
+﻿using System.Diagnostics;
+
+namespace Ej01
 {
-    private static void Main(string[] args)
+    internal class Program
     {
-        Console.WriteLine("Hello, World!");
+
+        private static void Main()
+        {
+
+            if (Ficheros.ArchivoExiste() && Ficheros.LeerFichero() && Ficheros.BuscarDiferencias())
+            {
+                Ficheros.CrearFichero("diferencias.txt", true);
+                if (Ficheros.EscribirFichero("diferencias.txt"))
+                    Process.Start("notepad.exe", "diferencias.txt");
+            }
+            else
+                Console.Write("No existen los ficheros necesarios.");
+            Console.ReadKey();
+        }
     }
 }
