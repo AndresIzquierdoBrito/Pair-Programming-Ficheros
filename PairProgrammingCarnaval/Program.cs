@@ -7,9 +7,10 @@ namespace Ej01
 
         private static void Main()
         {
-
+            //Revisamos que los archivos existen, Luego los leemos y guardamos, por último guardamos las diferencias.
             if (Ficheros.ArchivoExiste() && Ficheros.LeerFichero() && Ficheros.BuscarDiferencias())
             {
+                //Si existen, se leen y tienen diferencias entramos al if
                 Ficheros.CrearFichero("diferencias.txt", true);
                 if (Ficheros.EscribirFichero("diferencias.txt"))
                     Process.Start("notepad.exe", "diferencias.txt");
