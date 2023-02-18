@@ -1,7 +1,19 @@
-﻿internal class Program
+﻿namespace Ej04
 {
-    private static void Main(string[] args)
+
+    internal class Program
     {
-        Console.WriteLine("Hello, World!");
+        private static void Main()
+        {
+            if (Fichero.ArchivoExiste())
+            {
+                Fichero.LeerFichero();
+                Fichero.RellenarFichero();
+            }
+            else
+            {
+                Console.WriteLine("El archivo no existe.");
+            }
+        }
     }
 }

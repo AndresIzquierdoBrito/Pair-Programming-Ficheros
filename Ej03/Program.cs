@@ -14,7 +14,7 @@ namespace Ej03
             }
             else
             {
-                Console.WriteLine("pito");
+                Console.WriteLine("El archivo no existe.");
             }
 
         }
