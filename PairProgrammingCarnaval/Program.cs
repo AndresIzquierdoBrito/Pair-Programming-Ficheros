@@ -4,7 +4,6 @@ namespace Ej01
 {
     internal class Program
     {
-
         private static void Main()
         {
             //Revisamos que los archivos existen, Luego los leemos y guardamos, por último guardamos las diferencias.

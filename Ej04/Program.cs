@@ -11,9 +11,7 @@
                 Fichero.RellenarFichero();
             }
             else
-            {
                 Console.WriteLine("El archivo no existe.");
-            }
         }
     }
 }

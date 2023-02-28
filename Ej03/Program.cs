@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace Ej03
+﻿namespace Ej03
 {
     internal class Program
     {
@@ -10,13 +8,12 @@ namespace Ej03
             {
                 Ficheros.LeerFichero();
                 Ficheros.GestionLineas();
-
             }
             else
             {
                 Console.WriteLine("El archivo no existe.");
+                Console.ReadKey();
             }
-
         }
     }
 }

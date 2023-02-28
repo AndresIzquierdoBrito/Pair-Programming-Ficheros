@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Net;
-
-namespace Ej02
+﻿namespace Ej02
 {
     internal class Ficheros
     {
@@ -19,7 +16,8 @@ namespace Ej02
                         Console.WriteLine($"\t{lineas[lineas.Count - nLineas + i]}");
                 else
                     lineas.ForEach(line => Console.WriteLine($"\t{line}"));
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine($"Error, no se pudo leer el archivo\n\n{ex}");
             }
