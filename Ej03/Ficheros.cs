@@ -15,13 +15,11 @@ namespace Ej03
             try
             {
                 lineas = File.ReadAllLines(NOMBREFICH).ToList();
-                return true;
+                if (lineas is not null && lineas.Count > 0)
+                    return true;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
+            catch (Exception ex) { Console.WriteLine($"\n\n\t{ex.Message}"); }
+            return false;
         }
 
         public static void GestionLineas()
@@ -38,7 +36,8 @@ namespace Ej03
                     sw = new StreamWriter(FICHSALIDA, true);
                 }
                 for (int j = 6, anio = 2008, mes = 0; j < lineaDatos.Length - 1; j++, anio = (j - 6) % 12 == 0 ? anio + 1 : anio, mes = (j - 6) % 12 == 0 ? 0 : mes + 1)
-                    sw.WriteLine($"LINEA: {i} - {j - 5 + (126 * (i - 1))}:\t{anio};\t{(MESES[mes].Length == 4 ? MESES[mes] + "; " : (MESES[mes]) + ';')}\t{lineaDatos[5]};\t{lineaDatos[j]}");
+                    if (int.TryParse(lineaDatos[j], out int valor))
+                        sw.WriteLine($"LINEA: {i} - {j - 5 + (126 * (i - 1))}:\t{anio};\t{(MESES[mes].Length == 4 ? MESES[mes] + "; " : (MESES[mes]) + ';')}\t{lineaDatos[5]};\t{valor}");
             }
             sw.Close();
             Process.Start("notepad.exe", FICHSALIDA);

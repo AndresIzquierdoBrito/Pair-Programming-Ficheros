@@ -4,14 +4,11 @@
     {
         private static void Main()
         {
-            if (Ficheros.ArchivoExiste())
-            {
-                Ficheros.LeerFichero();
+            if (Ficheros.ArchivoExiste() && Ficheros.LeerFichero())
                 Ficheros.GestionLineas();
-            }
             else
             {
-                Console.WriteLine("El archivo no existe.");
+                Console.WriteLine("\n\n\tError durante la ejecución.");
                 Console.ReadKey();
             }
         }

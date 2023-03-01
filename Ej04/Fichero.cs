@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace Ej04
 {
@@ -57,7 +51,8 @@ namespace Ej04
             }
             catch(Exception ex)
             {
-                Console.WriteLine("No se pudo crear/escribir el fichero.");
+                Console.WriteLine($"escribir el fichero.\n\n\t{ex}");
+                Console.ReadKey();
                 return false;
             }
         }
