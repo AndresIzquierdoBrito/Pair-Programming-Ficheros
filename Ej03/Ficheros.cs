@@ -2,11 +2,11 @@
 
 namespace Ej03
 {
-    internal class Ficheros
+    internal abstract class Ficheros
     {
         const string NOMBREFICH = "paro.csv", FICHSALIDA = "SALIDA.txt";
         static readonly string[] MESES = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubbre", "Noviembre", "Diciembre" };
-        static List<string> lineas;
+        static List<string> lineas = new();
 
         public static bool ArchivoExiste() => File.Exists(NOMBREFICH);
 
@@ -24,7 +24,7 @@ namespace Ej03
 
         public static void GestionLineas()
         {
-            CrearFichero(FICHSALIDA, true);
+            Funciones.CrearFichero(FICHSALIDA, true);
             StreamWriter sw = new(FICHSALIDA);
             sw.WriteLine("LINEA\t\t\tAÑO\tMES\t\tMUNICIPIO\tDATO");
             for (int i = 1; i < lineas.Count; i++)
@@ -41,67 +41,6 @@ namespace Ej03
             }
             sw.Close();
             Process.Start("notepad.exe", FICHSALIDA);
-        }
-
-        public static bool CrearFichero(string path, bool sobreescribir = false)
-        {
-            try
-            {
-                bool crear = false;
-                if (File.Exists(path))
-                {
-                    if (sobreescribir)
-                    {
-                        Console.Write("\n\n\tEl archivo ya existe. \n\t\t¿Desea sobrescribirlo? S/N");
-                        if (Console.ReadKey().Key == ConsoleKey.S)
-                            crear = true;
-                    }
-                }
-                else
-                    crear = true;
-
-                if (crear)
-                {
-                    File.Create(path).Close();
-                    Cargar("\n\tCreando su fichero", "\n\n\t\t¡Archivo creado correctamente! :D", false, true);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Continuar($"Fallo durante la creación del archivo\n\n\n{ex}");
-                return false;
-            }
-        }
-
-        public static void Cargar(string msg, string msgSalida = "", bool parada = true, bool limpiarPrevio = false)
-        {
-            if (limpiarPrevio)
-                Console.Clear();
-            Console.Write(msg);
-            for (int i = 0; i < 3; i++)
-            {
-                Thread.Sleep(10);
-                Console.Write(".");
-            }
-            Thread.Sleep(10);
-            Console.Write(msgSalida);
-            if (parada)
-                Continuar("");
-            else
-                Thread.Sleep(10);
-        }
-
-        public static void Continuar(string msg, bool parada = true, bool limpiarPrevio = false)
-        {
-            if (limpiarPrevio)
-                Console.Clear();
-            Console.Write(msg);
-            if (parada)
-            {
-                Console.Write("\n\n\tPulse una tecla para continuar... ");
-                Console.ReadKey();
-            }
         }
     }
 }

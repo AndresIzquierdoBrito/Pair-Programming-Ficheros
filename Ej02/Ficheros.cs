@@ -10,7 +10,6 @@
             try
             {
                 List<string> lineas = File.ReadAllLines(NOMBREFICH).ToList();
-
                 if (nLineas < lineas.Count)
                     for (int i = 0; i < nLineas; i++)
                         Console.WriteLine($"\t{lineas[lineas.Count - nLineas + i]}");
