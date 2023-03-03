@@ -40,7 +40,7 @@
             Console.Write(msg);
             for (int i = 0; i < 3; i++)
             {
-                Thread.Sleep(1500);
+                Thread.Sleep(500);
                 Console.Write(".");
             }
             Thread.Sleep(700);
