@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 
 namespace Ej04
 {
@@ -33,7 +33,7 @@ namespace Ej04
             Funciones.CrearFichero(FICHSALIDA, true);
             try
             {
-                StreamWriter sw = new(FICHSALIDA);
+                sw = new(FICHSALIDA);
                 int NUMNOTAS = lineas[0].Split(';').ToArray().Length - 1;
                 double notaFinal, nota30, nota20, nota50;
                 sw.WriteLine("ALUMNO\t\tNOTA FINAL");
