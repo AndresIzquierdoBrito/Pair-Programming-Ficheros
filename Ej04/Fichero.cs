@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace Ej04
 {
@@ -31,10 +32,10 @@ namespace Ej04
         public static bool RellenarFichero()
         {
             Funciones.CrearFichero(FICHSALIDA, true);
+            
             try
             {
-                sw = new(FICHSALIDA);
-                int NUMNOTAS = lineas[0].Split(';').ToArray().Length - 1;
+                StreamWriter sw = new(FICHSALIDA);
                 double notaFinal, nota30, nota20, nota50;
                 sw.WriteLine("ALUMNO\t\tNOTA FINAL");
                 for (int i = 0; i < lineas.Count; i++)

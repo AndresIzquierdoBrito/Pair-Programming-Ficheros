@@ -40,15 +40,15 @@
             Console.Write(msg);
             for (int i = 0; i < 3; i++)
             {
-                Thread.Sleep(10);
+                Thread.Sleep(1500);
                 Console.Write(".");
             }
-            Thread.Sleep(10);
+            Thread.Sleep(700);
             Console.Write(msgSalida);
             if (parada)
                 Continuar("");
             else
-                Thread.Sleep(10);
+                Thread.Sleep(1000);
         }
 
         public static void Continuar(string msg, bool parada = true, bool limpiarPrevio = false)
